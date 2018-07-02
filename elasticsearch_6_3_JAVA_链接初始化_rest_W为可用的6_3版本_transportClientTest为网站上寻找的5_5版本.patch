@@ -1,0 +1,1417 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(date 1530068439634)
++++ .idea/misc.xml	(date 1530068439634)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(date 1530499039877)
++++ .idea/compiler.xml	(date 1530499039877)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <annotationProcessing>
++      <profile name="Maven default annotation processors profile" enabled="true">
++        <sourceOutputDir name="target/generated-sources/annotations" />
++        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
++        <outputRelativeToContentRoot value="true" />
++        <module name="idea-workplace" />
++      </profile>
++    </annotationProcessing>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1530515150602)
++++ .idea/vcs.xml	(date 1530515150602)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++    <mapping directory="C:\idea-workplace\Spring_Elasticsearch5.5.1" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: idea-workplace.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- idea-workplace.iml	(date 1530263081150)
++++ idea-workplace.iml	(date 1530263081150)
+@@ -0,0 +1,21 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="kotlin-language" name="Kotlin">
++      <configuration version="3" platform="JVM 1.8" useProjectSettings="false">
++        <compilerSettings />
++        <compilerArguments>
++          <option name="jvmTarget" value="1.8" />
++          <option name="languageVersion" value="1.2" />
++          <option name="apiVersion" value="1.2" />
++          <option name="pluginOptions">
++            <array />
++          </option>
++          <option name="pluginClasspaths">
++            <array />
++          </option>
++        </compilerArguments>
++      </configuration>
++    </facet>
++  </component>
++</module>
+\ No newline at end of file
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- pom.xml	(date 1530505050742)
++++ pom.xml	(date 1530505050742)
+@@ -0,0 +1,198 @@
++<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
++    <modelVersion>4.0.0</modelVersion>
++    <groupId>com.fendo</groupId>
++    <artifactId>TransportClient</artifactId>
++    <packaging>war</packaging>
++    <version>0.0.1-SNAPSHOT</version>
++    <name>TransportClient Maven Webapp</name>
++    <url>http://maven.apache.org</url>
++
++    <!-- 初始化框架的版本号 -->
++    <properties>
++        <spring.version>4.2.7.RELEASE</spring.version>
++    </properties>
++
++    <dependencies>
++
++        <dependency>
++            <groupId>junit</groupId>
++            <artifactId>junit</artifactId>
++            <version>4.12</version>
++        </dependency>
++
++        <!-- 加入ServletAPI -->
++        <dependency>
++            <groupId>javax.servlet</groupId>
++            <artifactId>javax.servlet-api</artifactId>
++            <version>3.1.0</version>
++            <scope>provided</scope>
++        </dependency>
++        <dependency>
++            <groupId>org.hibernate</groupId>
++            <artifactId>hibernate-validator</artifactId>
++            <version>4.2.0.Final</version>
++        </dependency>
++
++        <!-- MySQL依赖 start -->
++        <dependency>
++            <groupId>mysql</groupId>
++            <artifactId>mysql-connector-java</artifactId>
++            <version>5.1.38</version>
++        </dependency>
++
++        <!-- MySQL依赖 end -->
++
++
++        <!-- 加入MyBatis 依赖 start -->
++        <dependency>
++            <groupId>org.mybatis</groupId>
++            <artifactId>mybatis</artifactId>
++            <version>3.2.5</version>
++        </dependency>
++        <!-- 加入MyBatis 依赖 end -->
++
++        <!-- Log4j start -->
++        <dependency>
++            <groupId>log4j</groupId>
++            <artifactId>log4j</artifactId>
++            <version>1.2.17</version>
++        </dependency>
++
++        <dependency>
++            <groupId>org.apache.logging.log4j</groupId>
++            <artifactId>log4j-1.2-api</artifactId>
++            <version>2.7</version>
++        </dependency>
++
++        <dependency>
++            <groupId>org.apache.logging.log4j</groupId>
++            <artifactId>log4j-slf4j-impl</artifactId>
++            <version>2.7</version>
++        </dependency>
++
++        <dependency>
++            <groupId>org.apache.logging.log4j</groupId>
++            <artifactId>log4j-core</artifactId>
++            <version>2.7</version>
++        </dependency>
++
++        <!-- Log4j end -->
++
++
++        <!-- 引用c3p0 依赖 start-->
++        <dependency>
++            <groupId>com.mchange</groupId>
++            <artifactId>c3p0</artifactId>
++            <version>0.9.2.1</version>
++        </dependency>
++        <!-- 引用c3p0 依赖 end-->
++
++        <!-- 引用插件依赖：MyBatis整合Spring -->
++        <dependency>
++            <groupId>org.mybatis</groupId>
++            <artifactId>mybatis-spring</artifactId>
++            <version>1.3.0</version>
++        </dependency>
++
++        <!-- JSTL -->
++        <dependency>
++            <groupId>javax.servlet</groupId>
++            <artifactId>jstl</artifactId>
++            <version>1.2</version>
++        </dependency>
++
++        <!--  -->
++        <dependency>
++            <groupId>com.fasterxml.jackson.core</groupId>
++            <artifactId>jackson-core</artifactId>
++            <version>2.9.0</version>
++        </dependency>
++        <dependency>
++            <groupId>com.fasterxml.jackson.core</groupId>
++            <artifactId>jackson-databind</artifactId>
++            <version>2.9.0</version>
++        </dependency>
++        <dependency>
++            <groupId>com.fasterxml.jackson.core</groupId>
++            <artifactId>jackson-annotations</artifactId>
++            <version>2.9.0</version>
++        </dependency>
++
++
++
++        <dependency>
++            <groupId>com.alibaba</groupId>
++            <artifactId>fastjson</artifactId>
++            <version>1.2.12</version>
++        </dependency>
++
++
++
++        <!-- Elasticserach5 -->
++        <dependency>
++            <groupId>org.elasticsearch</groupId>
++            <artifactId>elasticsearch</artifactId>
++            <version>6.3.0</version>
++        </dependency>
++
++
++        <!-- 	<dependency>
++                 <groupId>org.elasticsearch.module</groupId>
++                 <artifactId>reindex</artifactId>
++                 <version>2.4.3</version>
++             </dependency> -->
++
++
++        <dependency>
++            <groupId>com.google.collections</groupId>
++            <artifactId>google-collections</artifactId>
++            <version>1.0</version>
++        </dependency>
++
++        <!-- transport客户端 -->
++        <dependency>
++            <groupId>org.elasticsearch.client</groupId>
++            <artifactId>transport</artifactId>
++            <version>5.5.1</version>
++        </dependency>
++
++        <!-- IK分词器 -->
++
++
++
++
++    </dependencies>
++
++    <repositories>
++        <repository>
++            <id>spring-libs-snapshot</id>
++            <name>Spring Snapshot Repository</name>
++            <url>http://repo.spring.io/libs-snapshot</url>
++        </repository>
++        <repository>
++            <id>elasticsearch-releases</id>
++            <url>https://artifacts.elastic.co/maven</url>
++            <releases>
++                <enabled>true</enabled>
++            </releases>
++            <snapshots>
++                <enabled>false</enabled>
++            </snapshots>
++        </repository>
++    </repositories>
++
++    <build>
++        <finalName>TransportClient</finalName>
++        <plugins>
++            <plugin>
++                <groupId>org.apache.maven.plugins</groupId>
++                <artifactId>maven-compiler-plugin</artifactId>
++                <configuration>
++                    <source>1.8</source>
++                    <target>1.8</target>
++                </configuration>
++            </plugin>
++        </plugins>
++    </build>
++</project>
+Index: src/main/java/elasticsearch/App.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/elasticsearch/App.java	(date 1530068835000)
++++ src/main/java/elasticsearch/App.java	(date 1530068835000)
+@@ -0,0 +1,13 @@
++package elasticsearch;
++
++/**
++ * Hello world!
++ *
++ */
++public class App 
++{
++    public static void main( String[] args )
++    {
++        System.out.println( "Hello World!" );
++    }
++}
+Index: src/test/java/elasticsearch/AppTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/elasticsearch/AppTest.java	(date 1530068835017)
++++ src/test/java/elasticsearch/AppTest.java	(date 1530068835017)
+@@ -0,0 +1,20 @@
++package elasticsearch;
++
++import static org.junit.Assert.assertTrue;
++
++import org.junit.Test;
++
++/**
++ * Unit test for simple App.
++ */
++public class AppTest 
++{
++    /**
++     * Rigorous Test :-)
++     */
++    @Test
++    public void shouldAnswerWithTrue()
++    {
++        assertTrue( true );
++    }
++}
+Index: src/test/java/com/fendo/temp/Rest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/fendo/temp/Rest.java	(date 1530515059081)
++++ src/test/java/com/fendo/temp/Rest.java	(date 1530515059081)
+@@ -0,0 +1,199 @@
++package com.fendo.temp;
++
++
++import java.io.IOException;
++import java.util.Collections;
++
++import org.apache.http.HttpEntity;
++import org.apache.http.HttpHost;
++import org.apache.http.auth.AuthScope;
++import org.apache.http.auth.UsernamePasswordCredentials;
++import org.apache.http.client.CredentialsProvider;
++import org.apache.http.entity.ContentType;
++import org.apache.http.impl.client.BasicCredentialsProvider;
++import org.apache.http.impl.nio.client.HttpAsyncClientBuilder;
++import org.apache.http.nio.entity.NStringEntity;
++import org.apache.http.util.EntityUtils;
++import org.elasticsearch.action.search.SearchResponse;
++import org.elasticsearch.client.Response;
++import org.elasticsearch.client.RestClient;
++import org.elasticsearch.client.RestClientBuilder;
++import org.elasticsearch.index.query.QueryBuilder;
++import org.elasticsearch.index.query.QueryBuilders;
++import org.junit.Before;
++import org.junit.Test;
++
++/**
++ * Elasticserach RestClient示例
++ * @author fendo
++ *
++ */
++public class Rest {
++
++    private static RestClient restClient;
++
++
++
++    public void getRestClient(){
++
++        final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
++        credentialsProvider.setCredentials(AuthScope.ANY,
++                new UsernamePasswordCredentials("elastic", "changeme"));
++
++        restClient = RestClient.builder(new HttpHost("192.168.0.48",9200,"http"))
++                .setHttpClientConfigCallback(new RestClientBuilder.HttpClientConfigCallback() {
++                    @Override
++                    public HttpAsyncClientBuilder customizeHttpClient(HttpAsyncClientBuilder httpClientBuilder) {
++                        return httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider);
++                    }
++                }).build();
++
++    }
++
++    @Before
++    public void getRest(){
++        restClient = RestClient.builder(new HttpHost("192.168.0.48", 9200, "http")).build();
++    }
++
++
++
++    /**
++     * 查看api信息
++     * @throws Exception
++     */
++    @Test
++    public void CatApi() throws Exception{
++        String method = "GET";
++        String endpoint = "/_cat";
++        Response response = restClient.performRequest(method,endpoint);
++        System.out.println(EntityUtils.toString(response.getEntity()));
++    }
++
++    /**
++     * 创建索引
++     * @throws Exception
++     */
++    @Test
++    public void CreateIndex() throws Exception{
++        String method = "PUT";
++        String endpoint = "/test-index";
++        Response response = restClient.performRequest(method,endpoint);
++        System.out.println(EntityUtils.toString(response.getEntity()));
++    }
++
++    /**
++     * 创建文档
++     * @throws Exception
++     */
++    @Test
++    public void CreateDocument()throws Exception{
++
++        String method = "PUT";
++        String endpoint = "/test-index/test/1";
++        HttpEntity entity = new NStringEntity(
++                "{\n" +
++                        "    \"user\" : \"kimchy\",\n" +
++                        "    \"post_date\" : \"2009-11-15T14:12:12\",\n" +
++                        "    \"message\" : \"trying out Elasticsearch\"\n" +
++                        "}", ContentType.APPLICATION_JSON);
++
++        Response response = restClient.performRequest(method,endpoint, Collections.<String, String>emptyMap(),entity);
++        System.out.println(EntityUtils.toString(response.getEntity()));
++    }
++
++    /**
++     * 获取文档
++     * @throws Exception
++     */
++    @Test
++    public void getDocument()throws Exception{
++        String method = "GET";
++        String endpoint = "/test-index/test/1";
++        Response response = restClient.performRequest(method,endpoint);
++        System.out.println(EntityUtils.toString(response.getEntity()));
++    }
++
++
++    /**
++     * 查询所有数据
++     * @throws Exception
++     */
++    @Test
++    public void QueryAll() throws Exception {
++        String method = "POST";
++        String endpoint = "/shakespeare/_search";
++        HttpEntity entity = new NStringEntity("{\n" +
++                "  \"query\": {\n" +
++                "    \"match_all\": {}\n" +
++                "  }\n" +
++                "}", ContentType.APPLICATION_JSON);
++
++        Response response = restClient.performRequest(method,endpoint,Collections.<String, String>emptyMap(),entity);
++        System.out.println(EntityUtils.toString(response.getEntity()));
++    }
++
++    /**
++     * 根据ID获取
++     * @throws Exception
++     */
++    @Test
++    public void QueryByField() throws Exception {
++        String method = "POST";
++        String endpoint = "/test-index/test/_search";
++        HttpEntity entity = new NStringEntity("{\n" +
++                "  \"query\": {\n" +
++                "    \"match\": {\n" +
++                "      \"user\": \"kimchy\"\n" +
++                "    }\n" +
++                "  }\n" +
++                "}", ContentType.APPLICATION_JSON);
++
++        Response response = restClient.performRequest(method,endpoint,Collections.<String, String>emptyMap(),entity);
++        System.out.println(EntityUtils.toString(response.getEntity()));
++    }
++
++    /**
++     * 更新数据
++     * @throws Exception
++     */
++    @Test
++    public void UpdateByScript() throws Exception {
++        String method = "POST";
++        String endpoint = "/test-index/test/1/_update";
++        HttpEntity entity = new NStringEntity("{\n" +
++                "  \"doc\": {\n" +
++                "    \"user\":\"大美女\"\n" +
++                "	}\n" +
++                "}", ContentType.APPLICATION_JSON);
++        Response response = restClient.performRequest(method,endpoint,Collections.<String, String>emptyMap(),entity);
++        System.out.println(EntityUtils.toString(response.getEntity()));
++    }
++
++
++    @Test
++    public void GeoBoundingBox() throws IOException {
++        String method = "POST";
++        String endpoint = "/attractions/restaurant/_search";
++        HttpEntity entity = new NStringEntity("{\n" +
++                "  \"query\": {\n" +
++                "    \"match_all\": {}\n" +
++                "  },\n" +
++                "  \"post_filter\": {\n" +
++                "    \"geo_bounding_box\": {\n" +
++                "      \"location\": {\n" +
++                "        \"top_left\": {\n" +
++                "          \"lat\": 39.990481,\n" +
++                "          \"lon\": 116.277144\n" +
++                "        },\n" +
++                "        \"bottom_right\": {\n" +
++                "          \"lat\": 39.927323,\n" +
++                "          \"lon\": 116.405638\n" +
++                "        }\n" +
++                "      }\n" +
++                "    }\n" +
++                "  }\n" +
++                "}", ContentType.APPLICATION_JSON);
++        Response response = restClient.performRequest(method,endpoint,Collections.<String, String>emptyMap(),entity);
++        System.out.println(EntityUtils.toString(response.getEntity()));
++    }
++}
+Index: .idea/.name
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.name	(date 1530068420903)
++++ .idea/.name	(date 1530068420903)
+@@ -0,0 +1,1 @@
++mavenparent
+\ No newline at end of file
+Index: src/test/java/com/fendo/temp/TransportClientTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/fendo/temp/TransportClientTest.java	(date 1530505770837)
++++ src/test/java/com/fendo/temp/TransportClientTest.java	(date 1530505770837)
+@@ -0,0 +1,564 @@
++package com.fendo.temp;
++import java.io.BufferedReader;
++import java.io.BufferedWriter;
++import java.io.File;
++import java.io.FileReader;
++import java.io.FileWriter;
++import java.io.IOException;
++import java.io.StringReader;
++import java.net.InetAddress;
++import java.net.UnknownHostException;
++import java.text.SimpleDateFormat;
++import java.util.ArrayList;
++import java.util.Collection;
++import java.util.Date;
++import java.util.HashMap;
++import java.util.HashSet;
++import java.util.List;
++import java.util.Map;
++import java.util.Set;
++import java.util.concurrent.ExecutionException;
++
++import org.elasticsearch.action.get.GetResponse;
++import org.elasticsearch.action.get.MultiGetItemResponse;
++import org.elasticsearch.action.get.MultiGetResponse;
++import org.elasticsearch.common.transport.TransportAddress;
++import org.elasticsearch.index.query.MatchQueryBuilder;
++import org.elasticsearch.action.ActionFuture;
++import org.elasticsearch.action.admin.indices.analyze.AnalyzeRequest;
++import org.elasticsearch.action.admin.indices.analyze.AnalyzeResponse;
++import org.elasticsearch.script.Script;
++import org.elasticsearch.script.ScriptType;
++import org.elasticsearch.index.query.MultiMatchQueryBuilder;
++import org.elasticsearch.index.query.MatchPhrasePrefixQueryBuilder;
++import org.elasticsearch.index.query.MatchPhraseQueryBuilder;
++import org.elasticsearch.action.search.MultiSearchResponse;
++import org.apache.lucene.analysis.TokenStream;
++import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
++import org.apache.lucene.search.join.ScoreMode;
++import org.elasticsearch.action.admin.indices.create.CreateIndexRequestBuilder;
++import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
++import org.elasticsearch.action.admin.indices.delete.DeleteIndexResponse;
++import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequest;
++import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsResponse;
++import org.elasticsearch.action.bulk.BulkRequestBuilder;
++import org.elasticsearch.action.bulk.BulkResponse;
++import org.elasticsearch.action.delete.DeleteResponse;
++import org.elasticsearch.action.index.IndexRequest;
++import org.elasticsearch.action.index.IndexRequestBuilder;
++import org.elasticsearch.action.index.IndexResponse;
++import org.elasticsearch.action.search.SearchRequestBuilder;
++import org.elasticsearch.action.search.SearchResponse;
++import org.elasticsearch.action.search.SearchType;
++import org.elasticsearch.action.update.UpdateRequest;
++import org.elasticsearch.action.update.UpdateResponse;
++import org.elasticsearch.client.Response;
++import org.elasticsearch.client.transport.TransportClient;
++import org.elasticsearch.common.settings.Settings;
++import org.elasticsearch.common.unit.Fuzziness;
++import org.elasticsearch.common.unit.TimeValue;
++import org.elasticsearch.common.xcontent.XContentBuilder;
++import org.elasticsearch.common.xcontent.XContentFactory;
++import org.elasticsearch.index.query.BoolQueryBuilder;
++import org.elasticsearch.index.query.QueryBuilder;
++import org.elasticsearch.index.query.QueryBuilders;
++import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
++import org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders;
++import org.elasticsearch.search.SearchHit;
++import org.elasticsearch.search.SearchHits;
++import org.elasticsearch.search.aggregations.AggregationBuilder;
++import org.elasticsearch.search.aggregations.AggregationBuilders;
++import org.elasticsearch.search.aggregations.Aggregations;
++import org.elasticsearch.search.aggregations.bucket.histogram.DateHistogramInterval;
++import org.elasticsearch.search.aggregations.bucket.terms.Terms;
++import org.elasticsearch.search.aggregations.bucket.terms.Terms.Bucket;
++import org.elasticsearch.search.aggregations.bucket.terms.TermsAggregationBuilder;
++import org.elasticsearch.search.aggregations.metrics.sum.Sum;
++import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
++import org.elasticsearch.search.sort.FieldSortBuilder;
++import org.elasticsearch.search.sort.SortOrder;
++import org.elasticsearch.transport.client.PreBuiltTransportClient;
++import org.elasticsearch.action.bulk.BackoffPolicy;
++import org.elasticsearch.action.bulk.BulkItemResponse;
++import org.elasticsearch.action.bulk.BulkProcessor;
++import org.elasticsearch.action.bulk.BulkRequest;
++import org.elasticsearch.action.bulk.BulkResponse;
++import org.elasticsearch.common.unit.ByteSizeUnit;
++import org.elasticsearch.common.unit.ByteSizeValue;
++import org.elasticsearch.common.unit.TimeValue;
++
++import org.joda.time.DateTime;
++import org.junit.Before;
++import org.junit.Test;
++
++import com.alibaba.fastjson.JSONObject;
++
++
++
++public class TransportClientTest {
++
++
++    private TransportClient client;
++
++
++    private final static String article="article";
++    private final static String content="content";
++
++    @Before
++    public void getClient() throws Exception{
++        //设置集群名称
++        Settings settings = Settings.builder().put("cluster.name", "my-application").build();// 集群名
++        //创建client
++//        client  = new PreBuiltTransportClient(settings)
++//                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("192.168.0.48"), 9300));
++        TransportClient client = new PreBuiltTransportClient(Settings.EMPTY)
++                .addTransportAddress(new TransportAddress(InetAddress.getByName("192.168.0.48"), 9300));
++    }
++
++    /**
++     * -----------------------------------------增(创建索引,增加映射,新增文档)
++     */
++
++
++    /**
++     * 创建索引的四种方法
++     */
++
++    @Test
++    public void JSON(){
++        String json = "{" +
++                "\"id\":\"kimchy\"," +
++                "\"postDate\":\"2013-01-30\"," +
++                "\"message\":\"trying out Elasticsearch\"" +
++                "}";
++
++    }
++
++    /**
++     * 创建索引并添加映射
++     * @throws IOException
++     */
++    @Test
++    public void CreateIndexAndMapping() throws Exception{
++
++        CreateIndexRequestBuilder  cib=client.admin().indices().prepareCreate(article);
++        XContentBuilder mapping = XContentFactory.jsonBuilder()
++                .startObject()
++                .startObject("properties") //设置之定义字段
++                .startObject("author")
++                .field("type","string") //设置数据类型
++                .endObject()
++                .startObject("title")
++                .field("type","string")
++                .endObject()
++                .startObject("content")
++                .field("type","string")
++                .endObject()
++                .startObject("price")
++                .field("type","string")
++                .endObject()
++                .startObject("view")
++                .field("type","string")
++                .endObject()
++                .startObject("tag")
++                .field("type","string")
++                .endObject()
++                .startObject("date")
++                .field("type","date")  //设置Date类型
++                .field("format","yyyy-MM-dd HH:mm:ss") //设置Date的格式
++                .endObject()
++                .endObject()
++                .endObject();
++        cib.addMapping(content, mapping);
++
++        CreateIndexResponse res=cib.execute().actionGet();
++
++        System.out.println("----------添加映射成功----------");
++    }
++
++    /**
++     *  创建索引并添加文档
++     * @throws Exception
++     */
++    @Test
++    public void addIndexAndDocument() throws Exception{
++
++        Date time = new Date();
++
++        IndexResponse response = client.prepareIndex(article, content)
++                .setSource(XContentFactory.jsonBuilder().startObject()
++                        .field("id","447")
++                        .field("author","fendo")
++                        .field("title","192.138.1.2")
++                        .field("content","这是JAVA有关的书籍")
++                        .field("price","20")
++                        .field("view","100")
++                        .field("tag","a,b,c,d,e,f")
++                        .field("date",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(time))
++                        .endObject())
++                .get();
++        System.out.println("添加索引成功,版本号："+response.getVersion());
++    }
++
++
++    /**
++     * -------------------------------------Bulk---------------------------------
++     */
++
++
++    /**
++     * bulkRequest
++     * @throws Exception
++     */
++    @Test
++    public void bulkRequest() throws Exception {
++        BulkRequestBuilder bulkRequest = client.prepareBulk();
++
++        Date time = new Date();
++
++        // either use client#prepare, or use Requests# to directly build index/delete requests
++        bulkRequest.add(client.prepareIndex(article, content, "199")
++                .setSource(XContentFactory.jsonBuilder()
++                        .startObject()
++                        .field("id","199")
++                        .field("author","fendo")
++                        .field("title","BULK")
++                        .field("content","这是BULK有关的书籍")
++                        .field("price","40")
++                        .field("view","300")
++                        .field("tag","a,b,c")
++                        .field("date",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(time))
++                        .endObject()
++                )
++        );
++
++        bulkRequest.add(client.prepareIndex(article,content, "101")
++                .setSource(XContentFactory.jsonBuilder()
++                        .startObject()
++                        .field("id","101")
++                        .field("author","fendo")
++                        .field("title","ACKSE")
++                        .field("content","这是ACKSE有关的书籍")
++                        .field("price","50")
++                        .field("view","200")
++                        .field("tag","a,b,c")
++                        .field("date",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(time))
++                        .endObject()
++                )
++        );
++
++        BulkResponse bulkResponse = bulkRequest.get();
++        if (bulkResponse.hasFailures()) {
++            // process failures by iterating through each bulk response item
++            //System.out.println(bulkResponse.getTook());
++        }
++    }
++
++
++
++
++
++    //手动 批量更新
++    @Test
++    public void multipleBulkProcessor() throws Exception {
++        BulkRequestBuilder bulkRequest = client.prepareBulk();
++        for(int i=500;i<1000;i++){
++            //业务对象
++            String jsons = "{\"id\":\""+i+"\",\"author\":\"ckse\",\"title\":\"windows编程\",\"content\":\"windows 32 API编程\",\"price\":\"99\",\"view\":\"222\",\"date\":\"2017-08-01 17:21:18\"}";
++            IndexRequestBuilder indexRequest = client.prepareIndex("article", "content")
++                    //指定不重复的ID
++                    .setSource(jsons).setId(String.valueOf(i));
++            //添加到builder中
++            bulkRequest.add(indexRequest);
++        }
++        BulkResponse bulkResponse = bulkRequest.execute().actionGet();
++        if (bulkResponse.hasFailures()) {
++            // process failures by iterating through each bulk response item
++            System.out.println(bulkResponse.buildFailureMessage());
++        }
++        System.out.println("创建成功!!!");
++    }
++
++    /**
++     * 使用Bulk批量添加导入数据
++     *
++     */
++    @Test
++    public void ImportBulk(){
++        FileReader fr = null;
++        BufferedReader bfr = null;
++        String line=null;
++        try {
++            File file = new File("F:\\Source\\Elasticsearch\\TransportClient\\src\\main\\resources\\bulk.txt");
++            fr=new FileReader(file);
++            bfr=new BufferedReader(fr);
++            BulkRequestBuilder bulkRequest=client.prepareBulk();
++            int count=0;
++            while((line=bfr.readLine())!=null){
++                bulkRequest.add(client.prepareIndex(article,content).setSource(line));
++                if (count%10==0) {
++                    bulkRequest.execute().actionGet();
++                }
++                count++;
++            }
++            bulkRequest.execute().actionGet();
++            System.out.println("导入成功!!!");
++        } catch (Exception e) {
++            e.printStackTrace();
++        }finally {
++            try {
++                bfr.close();
++                fr.close();
++            } catch (IOException e) {
++                e.printStackTrace();
++            }
++        }
++    }
++
++
++    /**
++     * 使用Bulk批量导出数据
++     * @throws ExecutionException
++     * @throws InterruptedException
++     */
++    @Test
++    public void ExportBulk() throws Exception{
++
++
++        QueryBuilder queryBuilder = QueryBuilders.matchAllQuery();
++        SearchResponse response = client.prepareSearch("article").setQuery(queryBuilder).get();
++
++        SearchHits resultHits = response.getHits();
++        System.out.println(JSONObject.toJSON(resultHits));
++
++        FileWriter fw=null;
++        BufferedWriter bfw =null;
++        try {
++            File file = new File("F:\\Source\\Elasticsearch\\TransportClient\\src\\main\\resources\\bulk.txt");
++            fw = new FileWriter(article);
++            bfw = new BufferedWriter(fw);
++            if (resultHits.getHits().length == 0) {
++                System.out.println("查到0条数据!");
++            } else {
++                for (int i = 0; i < resultHits.getHits().length; i++) {
++                    String jsonStr = resultHits.getHits()[i]
++                            .getSourceAsString();
++                    System.out.println(jsonStr);
++                    bfw.write(jsonStr);
++                    bfw.write("\n");
++                }
++            }
++        } catch (Exception e) {
++            e.printStackTrace();
++        }finally {
++            try {
++                bfw.close();
++                fw.close();
++            } catch (IOException e) {
++                e.printStackTrace();
++            }
++        }
++    }
++
++
++    /**
++     * -----------------------------------------删(删除索引,删除文档)
++     */
++
++
++    /**
++     * 删除整个索引库
++     */
++    @Test
++    public void deleteAllIndex(){
++
++        String indexName="article";
++
++        /**
++         * 两种方式如下:
++         */
++
++        //1)
++        //可以根据DeleteIndexResponse对象的isAcknowledged()方法判断删除是否成功,返回值为boolean类型.
++        DeleteIndexResponse dResponse = client.admin().indices().prepareDelete(indexName)
++                .execute().actionGet();
++        System.out.println("是否删除成功:"+dResponse.isAcknowledged());
++
++        //2)
++        //如果传人的indexName不存在会出现异常.可以先判断索引是否存在：
++        IndicesExistsRequest inExistsRequest = new IndicesExistsRequest(indexName);
++
++        IndicesExistsResponse inExistsResponse = client.admin().indices()
++                .exists(inExistsRequest).actionGet();
++
++        //根据IndicesExistsResponse对象的isExists()方法的boolean返回值可以判断索引库是否存在.
++        System.out.println("是否删除成功:"+inExistsResponse.isExists());
++    }
++
++    /**
++     * 通过ID删除
++     */
++    @Test
++    public void deleteById(){
++        DeleteResponse dResponse = client.prepareDelete(article,content, "AV49wyfCWmWw7AxKFxeb").execute().actionGet();
++        if ("OK".equals(dResponse.status())) {
++            System.out.println("删除成功");
++        } else {
++            System.out.println("删除失败");
++        }
++    }
++
++
++    /**
++     * 通过Query delete删除
++     */
++    @Test
++    public void queryDelete() {
++//		   String guid="AV49wyfCWmWw7AxKFxeb";
++//		   String author="kkkkk";
++//		   DeleteByQueryAction.INSTANCE.newRequestBuilder(client)
++//		         .source(article)
++//		         .filter(QueryBuilders.boolQuery().must(QueryBuilders.termQuery("id", guid)).must(QueryBuilders.termQuery("author", author)).must(QueryBuilders.typeQuery(content)))
++//		         .get();
++    }
++
++
++    /**
++     * 使用matchAllQuery删除所有文档
++     */
++    @Test
++    public void deleteAll(){
++//		   DeleteByQueryAction.INSTANCE.newRequestBuilder(client)
++//	         .source(article)
++//	         .filter(QueryBuilders.matchAllQuery())
++//	         .get();
++    }
++
++
++    /**
++     * bulk批量通过指定id删除方法
++     */
++    @Test
++    public void batchUndercarriageFamilies() {
++        List<String> publishIds=new ArrayList<>();
++        publishIds.add("AV49wyfCWmWw7AxKFxeY");
++        publishIds.add("AV49wyfCWmWw7AxKFxea");
++        BulkRequestBuilder builder=client.prepareBulk();
++        for(String publishId:publishIds){
++            System.out.println(publishId);
++            builder.add(client.prepareDelete(article, content, publishId).request());
++
++        }
++        BulkResponse bulkResponse = builder.get();
++        System.out.println(bulkResponse.status());
++    }
++
++
++
++
++    /**
++     * -----------------------------------------改()
++     */
++
++
++    /**
++     * 更新文档
++     * @throws Exception
++     */
++    @Test
++    public void updateDocument() throws Exception{
++
++        Date time = new Date();
++
++        //创建修改请求
++        UpdateRequest updateRequest = new UpdateRequest();
++        updateRequest.index(article);
++        updateRequest.type(content);
++        updateRequest.id("AV4xv5gAZLX8AvCc6ZWZ");
++        updateRequest.doc(XContentFactory.jsonBuilder()
++                .startObject()
++                .field("author","FKSE")
++                .field("title","JAVA思想")
++                .field("content","注意:这是JAVA有关的书籍")
++                .field("date",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(time))
++                .endObject());
++
++        UpdateResponse response = client.update(updateRequest).get();
++        System.out.println("更新索引成功");
++    }
++
++
++
++    /**
++     * -----------------------------有问题：要引入:reindex
++     */
++
++
++    /**
++     * UpdateByQueryRequestBuilder
++     * @throws Exception
++     */
++    @Test
++    public void updateByQueryRequestBuilder() throws Exception {
++//        UpdateByQueryRequestBuilder updateByQueryRequestBuilder = UpdateByQueryAction.INSTANCE.newRequestBuilder(client);
++//        updateByQueryRequestBuilder
++//                .script(new Script(ScriptType.INLINE,"painless","ctx_source.likes++",null))
++//                .source()
++//                .setQuery(QueryBuilders.termQuery("author","kkkkk"))
++//                .setIndices(article)
++//                .get();
++    }
++
++
++    /**
++     * updateByQueryRequestBuilders
++     */
++    @Test
++    public void updateByQueryRequestBuilders(){
++
++//    	Map<String, Object> maps=new HashMap<>();
++//    	maps.put("orgin_session_id", 10);
++//    	maps.put("orgin_session_id", 11);
++//    	maps.put("orgin_session_id", 12);
++//    	maps.put("orgin_session_id", 13);
++//
++//    	Set<Map<String, Object>> docs = new HashSet<>();
++//    	docs.add(maps);
++//
++//    	UpdateByQueryRequestBuilder  ubqrb = UpdateByQueryAction.INSTANCE.newRequestBuilder(client);
++//        for (Map<String, Object> doc : docs) {
++//            if (doc==null || doc.isEmpty()){
++//                return;
++//            }
++//            Script script = new Script("ctx._source.price = ctx._version");
++//
++//            System.out.println(doc.get("orgin_session_id"));
++//
++//            //BulkIndexByScrollResponse
++//            BulkByScrollResponse scrollResponse = ubqrb.source(article).script(script)
++//                            .filter(QueryBuilders.matchAllQuery()).get();
++//            for (BulkItemResponse.Failure failure : scrollResponse.getBulkFailures()) {
++//            	System.out.println(failure.getMessage());
++//            }
++//        }
++    }
++
++    /**
++     * prepareUpdate
++     * @throws Exception
++     */
++    @Test
++    public void prepareUpdate() throws Exception {
++
++        XContentBuilder endObject = XContentFactory.jsonBuilder().startObject().field("author","AAAAAAAAAAAAAAA").endObject();
++        UpdateResponse response = client.prepareUpdate(article, content, "AV49wyfCWmWw7AxKFxeb").setDoc(endObject).get();
++        System.out.println(response.getVersion());
++
++    }}
++
++
++
++
++
++
++
+Index: Spring_Elasticsearch5.5.1/Spring_Elasticsearch/Spring_Elasticsearch.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Spring_Elasticsearch5.5.1/Spring_Elasticsearch/Spring_Elasticsearch.iml	(date 1530264142967)
++++ Spring_Elasticsearch5.5.1/Spring_Elasticsearch/Spring_Elasticsearch.iml	(date 1530264142967)
+@@ -0,0 +1,27 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="EclipseModuleManager">
++    <conelement value="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER" />
++    <conelement value="org.eclipse.jst.j2ee.internal.web.container" />
++    <conelement value="org.eclipse.jst.j2ee.internal.module.container" />
++    <src_description expected_position="0">
++      <src_folder value="file://$MODULE_DIR$/src/main/java" expected_position="0" />
++      <src_folder value="file://$MODULE_DIR$/src/main/resources" expected_position="1" />
++      <src_folder value="file://$MODULE_DIR$/src/test/java" expected_position="2" />
++    </src_description>
++  </component>
++  <component name="NewModuleRootManager">
++    <output url="file://$MODULE_DIR$/target/classes" />
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
++      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" isTestSource="false" />
++      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="false" />
++    </content>
++    <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="jdk" jdkName="JavaSE-1.8" jdkType="JavaSDK" />
++    <orderEntry type="library" name="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER" level="application" />
++    <orderEntry type="library" name="org.eclipse.jst.j2ee.internal.web.container" level="application" />
++    <orderEntry type="library" name="org.eclipse.jst.j2ee.internal.module.container" level="application" />
++  </component>
++</module>
+\ No newline at end of file
+Index: Spring_Elasticsearch5.5.1/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Spring_Elasticsearch5.5.1/.idea/misc.xml	(date 1530264135839)
++++ Spring_Elasticsearch5.5.1/.idea/misc.xml	(date 1530264135839)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: Spring_Elasticsearch5.5.1/.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Spring_Elasticsearch5.5.1/.idea/workspace.xml	(date 1530499004634)
++++ Spring_Elasticsearch5.5.1/.idea/workspace.xml	(date 1530499004634)
+@@ -0,0 +1,207 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ChangeListManager">
++    <list default="true" id="583888d8-b8b1-4001-b0db-9a56c596b8ac" name="Default" comment="" />
++    <ignored path="$PROJECT_DIR$/Spring_Elasticsearch/target/classes/" />
++    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
++    <option name="TRACKING_ENABLED" value="true" />
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileEditorManager">
++    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="GradleLocalSettings">
++    <option name="projectSyncType">
++      <map>
++        <entry key="C:/Program Files/SVNceckout" value="PREVIEW" />
++        <entry key="$USER_HOME$/Desktop/SpiderTools" value="PREVIEW" />
++        <entry key="$USER_HOME$/Desktop/SpiderTools/SpiderTools" value="PREVIEW" />
++        <entry key="$USER_HOME$/Desktop/宋富本传送的JAR包相关/SpiderTools" value="PREVIEW" />
++      </map>
++    </option>
++  </component>
++  <component name="MavenProjectNavigator">
++    <treeState>
++      <expand />
++      <select />
++    </treeState>
++  </component>
++  <component name="ProjectFrameBounds" extendedState="6">
++    <option name="x" value="-8" />
++    <option name="y" value="-8" />
++    <option name="width" value="1616" />
++    <option name="height" value="876" />
++  </component>
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectView">
++    <navigator proportions="" version="1">
++      <foldersAlwaysOnTop value="true" />
++    </navigator>
++    <panes>
++      <pane id="Scope" />
++      <pane id="AndroidView" />
++      <pane id="ProjectPane" />
++      <pane id="PackagesPane" />
++    </panes>
++  </component>
++  <component name="PropertiesComponent">
++    <property name="last_opened_file_path" value="C:/Program Files/SVNceckout" />
++    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
++  </component>
++  <component name="RunDashboard">
++    <option name="ruleStates">
++      <list>
++        <RuleState>
++          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
++        </RuleState>
++        <RuleState>
++          <option name="name" value="StatusDashboardGroupingRule" />
++        </RuleState>
++      </list>
++    </option>
++  </component>
++  <component name="RunManager">
++    <configuration default="true" type="Application" factoryName="Application">
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
++    </configuration>
++    <configuration default="true" type="JUnit" factoryName="JUnit">
++      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
++      <option name="ALTERNATIVE_JRE_PATH" />
++      <option name="PACKAGE_NAME" />
++      <option name="MAIN_CLASS_NAME" />
++      <option name="METHOD_NAME" />
++      <option name="TEST_OBJECT" value="class" />
++      <option name="VM_PARAMETERS" value="-ea" />
++      <option name="PARAMETERS" />
++      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
++      <option name="PASS_PARENT_ENVS" value="true" />
++      <option name="TEST_SEARCH_SCOPE">
++        <value defaultName="singleModule" />
++      </option>
++      <patterns />
++    </configuration>
++    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
++      <module name="Spring_Elasticsearch" />
++      <option name="VM_PARAMETERS" />
++      <option name="PROGRAM_PARAMETERS" />
++      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
++      <option name="ALTERNATIVE_JRE_PATH" />
++      <option name="PASS_PARENT_ENVS" value="true" />
++      <option name="MAIN_CLASS_NAME" />
++      <option name="WORKING_DIRECTORY" />
++    </configuration>
++    <configuration default="true" type="TestNG" factoryName="TestNG">
++      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
++      <option name="ALTERNATIVE_JRE_PATH" />
++      <option name="SUITE_NAME" />
++      <option name="PACKAGE_NAME" />
++      <option name="MAIN_CLASS_NAME" />
++      <option name="METHOD_NAME" />
++      <option name="GROUP_NAME" />
++      <option name="TEST_OBJECT" value="CLASS" />
++      <option name="VM_PARAMETERS" value="-ea" />
++      <option name="PARAMETERS" />
++      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
++      <option name="OUTPUT_DIRECTORY" />
++      <option name="PASS_PARENT_ENVS" value="true" />
++      <option name="TEST_SEARCH_SCOPE">
++        <value defaultName="singleModule" />
++      </option>
++      <option name="USE_DEFAULT_REPORTERS" value="false" />
++      <option name="PROPERTIES_FILE" />
++      <properties />
++      <listeners />
++    </configuration>
++  </component>
++  <component name="SvnConfiguration">
++    <configuration useDefault="false">C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
++  </component>
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="583888d8-b8b1-4001-b0db-9a56c596b8ac" name="Default" comment="" />
++      <created>1530264135717</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1530264135717</updated>
++    </task>
++    <servers />
++  </component>
++  <component name="ToolWindowManager">
++    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
++    <layout>
++      <window_info anchor="right" id="Palette" order="3" />
++      <window_info anchor="bottom" id="TODO" order="6" />
++      <window_info anchor="right" id="Palette&#9;" order="3" />
++      <window_info id="Image Layers" order="2" />
++      <window_info anchor="right" id="Capture Analysis" order="3" />
++      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
++      <window_info anchor="right" id="Maven Projects" order="3" weight="0.32995737" />
++      <window_info anchor="bottom" id="Run" order="2" />
++      <window_info anchor="bottom" id="Version Control" order="7" />
++      <window_info anchor="bottom" id="Terminal" order="7" />
++      <window_info id="Capture Tool" order="2" />
++      <window_info id="Designer" order="2" />
++      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
++      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
++      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
++      <window_info id="UI Designer" order="2" />
++      <window_info anchor="right" id="Theme Preview" order="3" />
++      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
++      <window_info id="Favorites" order="2" side_tool="true" />
++      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
++      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
++      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
++      <window_info anchor="bottom" id="Message" order="0" />
++      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
++      <window_info anchor="bottom" id="Find" order="1" />
++    </layout>
++  </component>
++  <component name="VcsContentAnnotationSettings">
++    <option name="myLimit" value="2678400000" />
++  </component>
++  <component name="editorHistoryManager">
++    <entry file="file://$PROJECT_DIR$/Spring_Elasticsearch/src/main/java/com/fendo/config/TransportClientFactory.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="460">
++          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/Spring_Elasticsearch/src/main/java/com/fendo/config/SpringConfiguration.java">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="115">
++          <caret line="5" column="26" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="26" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/Spring_Elasticsearch/Spring_Elasticsearch.iml">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="230">
++          <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
++        </state>
++      </provider>
++    </entry>
++  </component>
++  <component name="masterDetails">
++    <states>
++      <state key="ProjectJDKs.UI">
++        <settings>
++          <last-edited>1.8</last-edited>
++          <splitter-proportions>
++            <option name="proportions">
++              <list>
++                <option value="0.2" />
++              </list>
++            </option>
++          </splitter-proportions>
++        </settings>
++      </state>
++    </states>
++  </component>
++</project>
+\ No newline at end of file
+Index: Spring_Elasticsearch5.5.1/.idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Spring_Elasticsearch5.5.1/.idea/vcs.xml	(date 1530264261729)
++++ Spring_Elasticsearch5.5.1/.idea/vcs.xml	(date 1530264261729)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
